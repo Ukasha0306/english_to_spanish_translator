@@ -1,7 +1,5 @@
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:english_to_spanish_translator/adds.dart';
-import 'package:english_to_spanish_translator/history.dart';
-import 'package:english_to_spanish_translator/utilts.dart';
+import 'package:english_to_spanish_translator/res/utilts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,10 +11,13 @@ import 'package:share_plus/share_plus.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:translator/translator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../res/component/my_button.dart';
+import 'adds.dart';
 import 'drawer_screen.dart';
 import 'favourite_screen.dart';
+import 'history.dart';
 import 'interstitial_ad.dart';
-import 'my_button.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,8 +26,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+
   AnimationController? _animationController;
 
   List<TranslationHistoryItem> translationHistory = [];
@@ -43,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen>
   SpeechToText speechToText = SpeechToText();
 
   static final _speech = SpeechToText();
+
   Future<bool> toggleRecording({
     required Function(String text) onResult,
     required ValueChanged<bool> onListening,
@@ -252,8 +254,7 @@ class _HomeScreenState extends State<HomeScreen>
                                 child: TextFormField(
                                   autofocus: false,
                                   maxLines: null,
-                                  scrollPhysics:
-                                      const AlwaysScrollableScrollPhysics(),
+                                  scrollPhysics: const AlwaysScrollableScrollPhysics(),
                                   controller: textController,
                                   style: const TextStyle(
                                     fontSize: 15,
@@ -577,23 +578,6 @@ class _HomeScreenState extends State<HomeScreen>
                                       size: 30,
                                     ),
                                   ),
-                                  // InkWell(
-                                  //     onTap: () {
-                                  //       if (translatedText.isEmpty) {
-                                  //         Utils.toastMesg("There is no text");
-                                  //       } else {
-                                  //
-                                  //        _shareDirectToFbMessenger();
-                                  //       }
-                                  //     },
-                                  //     child: Image.asset(
-                                  //       'assets/images/messenger.png',
-                                  //       height:
-                                  //           MediaQuery.sizeOf(context).height *
-                                  //               0.035,
-                                  //       fit: BoxFit.cover,
-                                  //       color: Colors.blue,
-                                  //     )),
                                   InkWell(
                                     onTap: () async{
                                       if (translatedText.isEmpty) {
@@ -695,13 +679,14 @@ class _HomeScreenState extends State<HomeScreen>
     final height = MediaQuery.sizeOf(context).height * 1;
     final width = MediaQuery.sizeOf(context).width * 1;
     return AppBar(
+      iconTheme: const IconThemeData(color: Colors.white),
       backgroundColor: Colors.blueAccent,
       actions: [
         Row(
           children: [
             Text(
               languages[currentLanguageIndex], // Use the current language
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: Colors.white),
             ),
             SizedBox(width: width * 0.10),
             GestureDetector(
@@ -722,7 +707,8 @@ class _HomeScreenState extends State<HomeScreen>
                   ),
                   child: const Icon(
                     FontAwesomeIcons.arrowRightArrowLeft,
-                    size: 20,
+                    color: Colors.white,
+                    size: 18,
                   ),
                 ),
               ),
@@ -731,7 +717,7 @@ class _HomeScreenState extends State<HomeScreen>
             Text(
               languages[(currentLanguageIndex + 1) %
                   languages.length], // Use the next language
-              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 17, fontWeight:  FontWeight.w600, color: Colors.white),
             ),
             SizedBox(width: width * .15),
           ],

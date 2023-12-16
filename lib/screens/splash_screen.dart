@@ -1,5 +1,5 @@
-import 'package:english_to_spanish_translator/splash_service.dart';
 import 'package:flutter/material.dart';
+import 'splash_service.dart';
 
 
 class SplashScreen extends StatefulWidget {

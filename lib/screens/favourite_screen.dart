@@ -4,6 +4,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'adds.dart';
 
 
+
 class FavouriteItem{
   final String engText;
   final String spaText;
@@ -44,7 +45,6 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     initBannerAd();
   }

@@ -1,8 +1,8 @@
-import 'package:english_to_spanish_translator/home_screen.dart';
-import 'package:english_to_spanish_translator/splash_screen.dart';
+
+import 'package:english_to_spanish_translator/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'adds.dart';
+import 'screens/adds.dart';
 
 
 AppOpenAd? appOpenAd;
